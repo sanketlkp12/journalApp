@@ -11,26 +11,15 @@ import org.springframework.data.mongodb.core.mapping.DBRef;
 import org.springframework.data.mongodb.core.mapping.Document;
 
 import javax.validation.constraints.NotNull;
-import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
 
-@Document(collection = "users")
+@Document(collection = "config_journal_app")
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
 @Builder
-public class User {
-    @Id
-    private ObjectId id;
-    @Indexed(unique = true)
-    @NotNull
-    private String userName;
-    private String email;
-    private boolean sentimentAnalysis;
-    @NotNull
-    private String password;
-    @DBRef
-    private List<JournalEntry> journalEntries = new ArrayList<>();
-    private List<String> roles;
+public class ConfigJournalAppEntity {
+    private String key;
+    private String value;
 }

@@ -24,6 +24,6 @@ public class UserDetailServiceImpl implements UserDetailsService {
                     .build();
 
         }
-        throw new UsernameNotFoundException("User not found with username: " + username);
+        throw new UsernameNotFoundException("UserRepositoryImplTest.class not found with username: " + username);
     }
 }
