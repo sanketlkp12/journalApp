@@ -5,14 +5,14 @@ spring:
     enabled: false
   data:
     mongodb:
-      uri: mongodb+srv://dummyproject555:Ceg#0150@cluster0.8ldo9.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0
-      database: journaldb
+      uri: ${MONGODB_URI}
+      database: ${MONGODB_DB}
       auto-index-creation: true
   mail:
     host: smtp.gmail.com
     port: 587
-    username: dummyproject555@gmail.com
-    password: uwcw tget ofql rogg
+    username: ${MAIL_USERNAME}
+    password: ${MAIL_PASSWORD}
     properties:
       mail:
         smtp:
@@ -35,7 +35,7 @@ logging:
 
 weather:
   api:
-    key: cd32c0a74b2ff4012b6b2a396991a349
+    key: ${WEATHER_API_KEY}
 
 
 #spring.data.mongodb.username=username
