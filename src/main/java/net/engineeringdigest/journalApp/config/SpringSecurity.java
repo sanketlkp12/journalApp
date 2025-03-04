@@ -28,28 +28,28 @@ public class SpringSecurity extends WebSecurityConfigurerAdapter {
     private JwtFilter jwtFilter;
 
  /*Spring security using httpBasic()*/
-//    @Override
-//    protected void configure(HttpSecurity http) throws Exception {
-//        http.authorizeHttpRequests()
-//                .antMatchers("/journal/**","/user/**").authenticated()
-//                .antMatchers("/admin/**").hasRole("ADMIN")
-//                .anyRequest().permitAll()
-//                .and()
-//                .httpBasic();
-//      http.sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS).and().csrf().disable();
-//    }
-
-    /*Spring security using JWT*/
     @Override
     protected void configure(HttpSecurity http) throws Exception {
         http.authorizeHttpRequests()
-                .antMatchers("/public/**").permitAll()//No authentication required as end point is excluded
                 .antMatchers("/journal/**","/user/**").authenticated()
                 .antMatchers("/admin/**").hasRole("ADMIN")
-                .anyRequest().authenticated();
-        http.sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS).and().csrf().disable();
-        http.addFilterBefore(jwtFilter, UsernamePasswordAuthenticationFilter.class);
+                .anyRequest().permitAll()
+                .and()
+                .httpBasic();
+      http.sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS).and().csrf().disable();
     }
+
+    /*Spring security using JWT*/
+//    @Override
+//    protected void configure(HttpSecurity http) throws Exception {
+//        http.authorizeHttpRequests()
+//                .antMatchers("/public/**").permitAll()//No authentication required as end point is excluded
+//                .antMatchers("/journal/**","/user/**").authenticated()
+//                .antMatchers("/admin/**").hasRole("ADMIN")
+//                .anyRequest().authenticated();
+//        http.sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS).and().csrf().disable();
+//        http.addFilterBefore(jwtFilter, UsernamePasswordAuthenticationFilter.class);
+//    }
 
 
     @Override
