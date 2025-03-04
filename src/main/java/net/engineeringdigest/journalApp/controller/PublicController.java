@@ -29,11 +29,11 @@ public class PublicController {
     private UserDetailServiceImpl userDetailService;
 
     @Autowired
-    private JwtUtil jwtUtil;
+  private JwtUtil jwtUtil;
     
     /*Creating user using SpringSecurity*/
     @PostMapping("/createUser")
-    public ResponseEntity<User> creatUser(@RequestBody User entry) {
+    public ResponseEntity<User> createUser(@RequestBody User entry) {
         try {
             userService.saveNewUser(entry);
             return new ResponseEntity<>(entry, HttpStatus.CREATED);
@@ -57,8 +57,10 @@ public class PublicController {
             authenticationManager.authenticate(
                     new UsernamePasswordAuthenticationToken(user.getUserName(), user.getPassword()));
             UserDetails userDetails = userDetailService.loadUserByUsername(user.getUserName());
-            String jwt = jwtUtil.generateToken(userDetails.getUsername());
-                    return new ResponseEntity<>(jwt, HttpStatus.OK);
+    //        String jwt = jwtUtil.generateToken(userDetails.getUsername());
+      //              return new ResponseEntity<>(jwt, HttpStatus.OK);
+            String res = "It works fine";
+            return new ResponseEntity<>(res,HttpStatus.OK);
         } catch (Exception e) {
             log.error("Exception occurred while createAuthenticationToken", e);
             return new ResponseEntity<>("Incorrect username or password", HttpStatus.BAD_REQUEST);

@@ -1,41 +1,94 @@
-#spring.data.mongodb.host=localhost
-#spring.data.mongodb.port=27017
-spring:
-  security:
-    enabled: false
-  data:
-    mongodb:
-      uri: ${MONGODB_URI}
-      database: ${MONGODB_DB}
-      auto-index-creation: true
-  mail:
-    host: smtp.gmail.com
-    port: 587
-    username: ${MAIL_USERNAME}
-    password: ${MAIL_PASSWORD}
-    properties:
-      mail:
-        smtp:
-          auth: true
-          starttls:
-            enable: true
-  redis:
-    host: localhost
-    port: 6379
-server:
-    port: 8080
-    servlet:
-      context-path: /journals
+# application.yml (Common or Default settings)
 
+# Set the active profile to 'dev' by default
+spring:
+  profiles:
+    active: ${SPRING_PROFILES_ACTIVE:dev}
+
+  # Common application name or settings that apply to all environments
+  application:
+    name: journalApp
+
+# Common logging level
 logging:
   level:
-   net:
-   engineeringdigest:
-    journalApp: DEBUG
+    org.springframework: INFO
 
-weather:
-  api:
-    key: ${WEATHER_API_KEY}
+
+#spring.data.mongodb.host=localhost
+#spring.data.mongodb.port=27017
+#spring:
+#  security:
+#    enabled: false
+#  data:
+#    mongodb:
+#      uri: ${MONGODB_URI}
+#      database: ${MONGODB_DB}
+#      auto-index-creation: true
+#  mail:
+#    host: smtp.gmail.com
+#    port: 587
+#    username: ${MAIL_USERNAME}
+#    password: ${MAIL_PASSWORD}
+#    properties:
+#      mail:
+#        smtp:
+#          auth: true
+#          starttls:
+#            enable: true
+#  redis:
+#    host: localhost
+#    port: 6379
+#server:
+#    port: 8080
+#    servlet:
+#      context-path: /journals
+#
+#logging:
+#  level:
+#   net:
+#   engineeringdigest:
+#    journalApp: DEBUG
+#
+#weather:
+#  api:
+#    key: ${WEATHER_API_KEY}
+#spring:
+#  security:
+#    enabled: false
+#  data:
+#    mongodb:
+#      uri: mongodb+srv://dummyproject555:Ceg#0150@cluster0.8ldo9.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0
+#      database: journaldb
+#      auto-index-creation: true
+#  mail:
+#    host: smtp.gmail.com
+#    port: 587
+#    username: dummyproject555@gmail.com
+#    password: uwcw tget ofql rogg
+#    properties:
+#      mail:
+#        smtp:
+#          auth: true
+#          starttls:
+#            enable: true
+#  redis:
+#    host: localhost
+#    port: 6379
+#server:
+#  port: 8080
+#  servlet:
+#    context-path: /journals
+#
+#logging:
+#  level:
+#    net:
+#    engineeringdigest:
+#      journalApp: DEBUG
+#
+#weather:
+#  api:
+#    key: cd32c0a74b2ff4012b6b2a396991a349
 
 
 #spring.data.mongodb.username=username
